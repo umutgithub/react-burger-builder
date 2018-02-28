@@ -10,6 +10,7 @@ import Modal from '../../components/UI/Modal/Modal.js'
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import axios from '../../axios-orders';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import withErrorHandler from '../../hoc/withErrorHandler/wihtErrorHandler';
 
 const INGREDIENT_PRICES = {
     salad: 0.5,
@@ -138,7 +139,6 @@ class BurgerBuilder extends Component {
             purchaseContinue={this.purchaseContinueHandler}
         />;
         if(this.state.loading) {
-            console.log('sss');
             orderSummary = <Spinner />;
         }
 
@@ -162,4 +162,4 @@ class BurgerBuilder extends Component {
     }
 }
 
-export default BurgerBuilder;
+export default withErrorHandler(BurgerBuilder, axios);
