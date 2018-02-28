@@ -30,7 +30,7 @@ class OrderSummary extends Component  {
                 <h3>Your Order</h3>
                 <p>A delicious burger with the following ingderients:</p>
                 <ul>
-              {ingredientSummary}
+                {ingredientSummary}
                 </ul>
                 <p><strong>Total Price: {this.props.price.toFixed(2)}</strong></p>
                 <p>Continue to checkout</p>
