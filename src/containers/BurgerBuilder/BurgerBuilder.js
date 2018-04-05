@@ -129,6 +129,7 @@ class BurgerBuilder extends Component {
         //    this.setState({loading: false, purchasing: false });
         //});
         //this.props.history.push('/checkout');
+
         // pass ingredient to continue checkout with URI param
         const queryParams = [];
         for (let i in this.state.ingredients) {
