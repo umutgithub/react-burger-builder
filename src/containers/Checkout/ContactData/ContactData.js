@@ -90,12 +90,26 @@ class ContactData extends Component {
     }
 
     render() {
+        // conver state object to array to loop through
+        const formElementArray = [];
+        for (let key in this.state.orderForm) {
+            formElementArray.push({
+                id: key,
+                config: this.state.orderForm[key]
+            });
+        }
+        //form elements generated in from formElementArray which was set in state json orderForm
         let form = (
              <form>
-                  <Input elementType="..."  elementConfig="..." value="..." />
-                  <Input inputtype="input" type="email" name="email" placeholder="Your Email"/>
-                  <Input inputtype="input" type="text" name="street" placeholder="Street Address"/>
-                  <Input inputtype="input" type="text" name="postal" placeholder="Postal Code"/>
+                {formElementArray.map(formElement => (
+                 //<Input inputype="input" type="text" name="name" placeholder="name"/>
+                  <Input
+                      key={formElement.id}
+                      elementType={formElement.config.elementType}
+                      elementConfig={formElement.config.elementConfig}
+                      value={formElement.config.value}
+                  />
+                 ))}
                   <Button btnType="Success" clicked={this.orderHandler}>ORDER!</Button>
                </form>
 
