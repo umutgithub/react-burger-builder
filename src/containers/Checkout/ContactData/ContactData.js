@@ -55,12 +55,12 @@ class ContactData extends Component {
               value: ''
             },
              deliveryMethod:  {
-              elementType: 'select',
-              elementConfig: {
-                 options: [
+               elementType: 'select',
+               elementConfig: {
+                  options: [
                      {value: 'fastest', displayValue: 'Fastest'},
                      {value: 'cheapest', displayValue: 'Cheapest'}
-                 ]
+                  ]
               },
               value: ''
             }
