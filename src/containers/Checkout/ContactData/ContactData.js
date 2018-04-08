@@ -89,6 +89,22 @@ class ContactData extends Component {
 
     }
 
+    inputChangedHandler = (e, inputIdentifier) => {
+            // clone the update form first
+            const updatedOrderForm = {
+                ...this.state.orderForm
+            };
+            // now clone what is nested inside of above
+            const updatedFormElement = {
+                ...updatedOrderForm[inputIdentifier]
+            };
+
+            updatedFormElement.value = e.target.value;
+            // changed the value in deep now moving up
+            updatedOrderForm[inputIdentifier] = updatedFormElement;
+            this.setState({orderForm : updatedOrderForm });
+        };
+
     render() {
         // conver state object to array to loop through
         const formElementArray = [];
@@ -108,6 +124,7 @@ class ContactData extends Component {
                       elementType={formElement.config.elementType}
                       elementConfig={formElement.config.elementConfig}
                       value={formElement.config.value}
+                      changed={(event) => this.inputChangedHandler(event, formElement.id)}
                   />
                  ))}
                   <Button btnType="Success" clicked={this.orderHandler}>ORDER!</Button>
