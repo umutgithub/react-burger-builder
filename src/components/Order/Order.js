@@ -30,7 +30,7 @@ const order = (props) => {
 
     });
 
-    console.log(ingredients);
+    //console.log(ingredients);
     return (
         <div className={classes.Order}>
             <p>Ingrediens: {ingredientOutput}</p>

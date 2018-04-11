@@ -121,20 +121,19 @@ class ContactData extends Component {
     }
 
     checkValidity(value, rules) {
-           let isValid = false;
+           let isValid = true;
            //check trimmed valus is not empty
            if(rules.required) {
-               isValid = value.trim() !== '';
+               isValid = value.trim() !== '' && isValid;
+               console.log(isValid = value.trim() !== '' && isValid);
            }
 
            if(rules.minLength) {
-               isValid = value.length >= rules.minLength
+               isValid = value.length >= rules.minLength && isValid
            }
            if(rules.maxLength) {
-               isValid = value.length <= rules.maxLength
+               isValid = value.length <= rules.maxLength && isValid
            }
-
-
            return isValid;
     }
 
