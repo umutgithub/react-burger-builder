@@ -57,10 +57,17 @@ const input = (props) => {
     }
 
     //console.log(props);
+    //show error msg or not
+    let validationError = null;
+    if (props.invalid && props.touched) {
+         validationError = <p className={classes.ValidationError}>Please enter a valid value</p>;
+    }
+
     return (
         <div className={classes.Input}>
           <label className={classes.label}>{props.label}</label>
           {inputElement}
+          {validationError}
         </div>
 
     );
