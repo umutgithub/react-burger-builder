@@ -165,6 +165,7 @@ class ContactData extends Component {
                 config: this.state.orderForm[key]
             });
         }
+    console.log(formElementArray);
         //form elements generated in from formElementArray which was set in state json orderForm
         let form = (
              <form onSubmit={this.orderHandler}>
@@ -175,6 +176,8 @@ class ContactData extends Component {
                       elementType={formElement.config.elementType}
                       elementConfig={formElement.config.elementConfig}
                       value={formElement.config.value}
+                      invalid={!formElement.config.valid}
+                      shouldValidate={formElement.config.validation}
                       changed={(event) => this.inputChangedHandler(event, formElement.id)}
                   />
                  ))}
