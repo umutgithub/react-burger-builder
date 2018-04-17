@@ -32,14 +32,16 @@ class BurgerBuilder extends Component {
     }
     //get default ingredients
     componentDidMount () {
-        axios.get('https://react-burger-builder-bc.firebaseio.com/ingredients.json')
-        .then(res => {
-                console.log('default ingredients ==>', res);
-            this.setState({ingredients: res.data});
-        })
-        .catch(err => {
-            this.setState({error: true});
-        });
+        //commented. moved ingredients to reducer state for now.
+        //console.log(this.props);
+        //axios.get('https://react-burger-builder-bc.firebaseio.com/ingredients.json')
+        //.then(res => {
+        //        console.log('default ingredients ==>', res);
+        //    this.setState({ingredients: res.data});
+        //})
+        //.catch(err => {
+        //    this.setState({error: true});
+        //});
     }
 
     updatePurchaseState (ingredients) {
