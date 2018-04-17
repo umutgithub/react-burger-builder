@@ -7,7 +7,10 @@ import classes from './Burger.css';
 import BurgerIngredient from './BurgerIngredients/BurgerIngredients';
 
 const burger = (props) => {
-
+    console.log('props.ingredients====', props.ingredients);
+    // Burger itself
+    //transform object of ingredients to array.
+    //Bind chain
     let transformedIngredients = Object.keys(props.ingredients)
          .map(igKey => {
 
@@ -16,12 +19,14 @@ const burger = (props) => {
             });
          })
          .reduce((arr, el) => {
+            //console.log(arr);
+            //console.log(el);
             return arr.concat(el);
         }, []);
     if(transformedIngredients.length === 0) {
         transformedIngredients = <p>Please add ingredient</p>;
     }
-    //console.log(transformedIngredients);
+    //console.log('transformedIngredients====',transformedIngredients);
     return (
         <div className={classes.Burger}>
           <BurgerIngredient type="bread-top" />

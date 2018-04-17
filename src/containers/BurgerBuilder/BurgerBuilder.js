@@ -30,12 +30,11 @@ class BurgerBuilder extends Component {
       error: false
 
     }
-
+    //get default ingredients
     componentDidMount () {
-        console.log(this.props);
         axios.get('https://react-burger-builder-bc.firebaseio.com/ingredients.json')
         .then(res => {
-                console.log(res);
+                console.log('default ingredients ==>', res);
             this.setState({ingredients: res.data});
         })
         .catch(err => {

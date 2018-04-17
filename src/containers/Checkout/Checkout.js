@@ -12,7 +12,7 @@ class Checkout extends Component {
         ingredients: null,
         totalPrice: 0
     }
-
+    // passing ingredients with query params
     componentWillMount() {
         //this.props.location.search = 'bacon=0&cheese=0&meat=1&salad=1';
         const query = new URLSearchParams(this.props.location.search);
