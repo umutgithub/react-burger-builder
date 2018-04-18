@@ -16,9 +16,12 @@ import * as actionTypes from '../../store/actions';
 
 
 class BurgerBuilder extends Component {
+    //constructor(props) {
+    //      super(props);
+    //      this.state = {...}
+    // }
 
     state = {
-      purchasable: false,
       purchasing: false,
       loading: false,
       error: false
@@ -36,7 +39,17 @@ class BurgerBuilder extends Component {
         //    this.setState({error: true});
         //});
     }
-
+    // logic to enable order button. if sum > 0
+    updatePurchaseState (ingredients) {
+       //conver obj to array
+        const sum = Object.keys(ingredients)
+            .map(igKey => {return ingredients[igKey]
+            })
+            .reduce((sum, el) => {
+              return sum + el;
+            }, 0);
+        return sum > 0;
+    }
 
     purchaseHandler = () => {
         this.setState({purchasing: true});
@@ -72,7 +85,7 @@ class BurgerBuilder extends Component {
         for( let key in disableInfo) {
             disableInfo[key] = disableInfo[key] <= 0;
         }
- console.log(disableInfo)
+
         // Component Variables declared
         let orderSummary = null;
 
@@ -87,7 +100,7 @@ class BurgerBuilder extends Component {
                         ingredientRemoved={this.props.onIngredientRemoved}
                         disabled={disableInfo}
                         price={this.props.tprice}
-                        purchasable={this.state.purchasable}
+                        purchasable={this.updatePurchaseState(this.props.ings)}
                         ordered={this.purchaseHandler}/>
                 </Aux>
             );
